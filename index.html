@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h2>Formulário de Exemplo</h2>
+    <form id="myForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="button" onclick="salvarDados()">Salvar</button>
+    </form>
+    <form id="myForm" action="processa_formulario.php" method="POST">
+        <!-- Seus campos de entrada aqui -->
+    </form>
+    
+
+    <div id="resultado"></div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conexão com SQL Server</title>
+</head>
+<body>
+    <button id="conectar">Conectar ao SQL Server</button>
+    <div id="resultado"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#conectar").click(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "dados.php", // O arquivo PHP que criamos
+                    success: function(data) {
+                        $("#resultado").html("Conexão estabelecida com sucesso!");
+                    },
+                    error: function() {
+                        $("#resultado").html("Erro na conexão com o SQL Server.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
